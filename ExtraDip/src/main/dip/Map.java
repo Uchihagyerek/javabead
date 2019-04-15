@@ -129,7 +129,7 @@ public class Map extends Canvas {
     private void fillMap() {
         getStart();
         int maxTreasure = 0;
-        map[startX][startY] = 1;
+
         roomCount = 0;
         maxRooms = 20;
         x = startX;
@@ -161,6 +161,8 @@ public class Map extends Canvas {
             System.out.println();
         }
         boss = false;
+
+        map[startX][startY] = 5;    //5: shop
         repaint();
     }
 
@@ -258,6 +260,10 @@ public class Map extends Canvas {
 
             }
         }
+        if(map[myY][myX]==5&&!Shop.isOpen){
+            openShop ();
+            Shop.isOpen=true;
+        }
 
         ig.drawImage(image, 0, 0, this);
 
@@ -277,6 +283,19 @@ public class Map extends Canvas {
         btl.setVisible(true);
         btl.setResizable(false);
         btl.requestFocus();
+    }
+
+    private void openShop(){
+        Shop shop=new Shop (this,player);
+        JFrame shp=new JFrame ("Shop");
+        shop.ui (shp);
+        shp.setDefaultCloseOperation (WindowConstants.DISPOSE_ON_CLOSE);
+        shp.getContentPane ().add (shop);
+
+        shp.pack ();
+        shp.setVisible (true);
+        shp.setResizable (false);
+        shp.requestFocus ();
     }
 
     private void getStart() {
