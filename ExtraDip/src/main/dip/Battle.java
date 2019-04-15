@@ -268,6 +268,16 @@ public class Battle extends Canvas {
         map.setFocusable(true);
         map.requestFocus();
 
+        if(player.sword){
+            player.boost=2;
+        }else{
+            player.boost=1;
+        }
+
+        if(player.monsterWeakened){
+            player.monsterWeakened=false;
+        }
+
 
 
         player.familiarTime--;
