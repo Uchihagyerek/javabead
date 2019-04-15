@@ -9,6 +9,14 @@ abstract class Entity {
    // int maxMana;
     abstract int attack();
 
+
+
+    /*
+
+
+   szia martin, teszteljük le hogy kell ilyet
+     */
+
 }
 
 
