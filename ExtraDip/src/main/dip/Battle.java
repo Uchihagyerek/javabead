@@ -216,6 +216,10 @@ public class Battle extends Canvas {
         }
         System.out.println("Player rolled: " + playerRoll);
         System.out.println("Enemy rolled: " + enemyRoll);
+
+        if(player.health<1){
+            player.die ();
+        }
     }
 
     private void setStats() {
